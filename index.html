@@ -5,23 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi</title>
     <style>
-        body {
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
+        body, html {
             margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            background: #000;
+        }
+        .content {
+            position: relative;
             font-family: "Comic Sans MS", cursive, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         h1 {
-            color: white;
             font-size: 72px;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>hi</h1>
+    <div id="video-background"></div>
+    <div class="content">
+        <h1>hi</h1>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video-background', {
+                videoId: 'VIDEO_ID', // Replace with your unlisted YouTube video ID
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'showinfo': 0,
+                    'mute': 1,
+                    'loop': 1,
+                    'playlist': 'VIDEO_ID' // Repeat the video ID here for looping
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+    </script>
 </body>
 </html>
