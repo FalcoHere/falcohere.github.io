@@ -59,19 +59,20 @@
             align-items: center;
             z-index: 1000;
             cursor: pointer;
+            transition: opacity 0.5s ease-out;
         }
         #unmute-overlay span {
             color: white;
-            font-size: 24px;
-            padding: 10px 20px;
+            font-size: 72px;
+            padding: 20px;
             border: 2px solid white;
-            border-radius: 5px;
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
     <div id="unmute-overlay">
-        <span>Click to unmute</span>
+        <span>🔇</span>
     </div>
     <h1>hi</h1>
     <div id="video-container">
@@ -90,10 +91,19 @@
     </footer>
 
     <script>
-        document.getElementById('unmute-overlay').addEventListener('click', function() {
+        var overlay = document.getElementById('unmute-overlay');
+        var overlaySpan = overlay.querySelector('span');
+
+        overlay.addEventListener('click', function() {
             var iframe = document.getElementById('youtube-player');
             iframe.src = iframe.src.replace('&mute=1', '');
-            this.style.display = 'none';
+            overlaySpan.textContent = '🔊';
+            setTimeout(function() {
+                overlay.style.opacity = '0';
+                setTimeout(function() {
+                    overlay.style.display = 'none';
+                }, 500);
+            }, 1000);
         });
     </script>
 </body>
