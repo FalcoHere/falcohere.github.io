@@ -17,15 +17,16 @@
         }
         h1 {
             color: white;
-            font-size: 72px;
+            font-size: 10vw;
             margin-top: 20px;
             margin-bottom: 20px;
         }
         #video-container {
-            width: 1080px;
-            height: 1080px;
-            max-width: 100%;
-            max-height: calc(100vh - 200px); /* Adjusted for footer */
+            width: 90vw;
+            height: 90vw;
+            max-width: 1080px;
+            max-height: 1080px;
+            margin-bottom: 60px; /* Space for footer */
         }
         iframe {
             width: 100%;
@@ -45,7 +46,8 @@
         footer a {
             color: white;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 4vw;
+            max-font-size: 24px;
         }
         #unmute-overlay {
             position: fixed;
@@ -63,10 +65,22 @@
         }
         #unmute-overlay span {
             color: white;
-            font-size: 72px;
-            padding: 20px;
+            font-size: 15vw;
+            padding: 5vw;
             border: 2px solid white;
             border-radius: 50%;
+        }
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 72px;
+            }
+            footer a {
+                font-size: 24px;
+            }
+            #unmute-overlay span {
+                font-size: 72px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
