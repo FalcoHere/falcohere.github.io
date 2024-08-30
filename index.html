@@ -22,10 +22,14 @@
             margin-bottom: 20px;
         }
         #video-container {
-            width: 90%;
-            height: calc(100vh - 140px); /* Adjust based on header height */
-            max-width: 1600px;
-            max-height: 900px;
+            width: 1080px;
+            height: 1080px;
+            max-width: 100%;
+            max-height: calc(100vh - 140px); /* Adjust based on header height */
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -33,8 +37,6 @@
     <h1>hi</h1>
     <div id="video-container">
         <iframe 
-            width="100%" 
-            height="100%" 
             src="https://www.youtube.com/embed/videoseries?list=PLbEmDAGcPDSij-V5VtlI4bTu6xnqs7Orp&autoplay=1&controls=1&showinfo=0&loop=1" 
             frameborder="0" 
             allow="autoplay; encrypted-media" 
